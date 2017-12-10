@@ -1,0 +1,74 @@
+﻿<Window x:Class="Tester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tester"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="755" Width="1224" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="199*"/>
+            <RowDefinition Height="255*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Label FontSize="24">Студенты</Label>
+            <Button Grid.Row="0" Width="66" Height="30" HorizontalAlignment="Left" Command="{Binding AddPersonCommand}" Click="Button_Click_1">Добавить</Button>
+            <Button Grid.Row="0" Width="66" Height="30" HorizontalAlignment="Left" Command="{Binding AddPersonCommand}" Click="Button_Click_2" >Удалить</Button>
+            <Button Grid.Row="0" Width="66" Height="30" HorizontalAlignment="Left" Command="{Binding AddPersonCommand}" Click="Button_Click_3" >Сохранить</Button>
+        </StackPanel>
+        
+        
+        <DataGrid Name="Data" Grid.Row="2" ItemsSource="{Binding Persons}" IsReadOnly="True" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" SelectedItem="{Binding SelectedPerson}" ></DataGrid>
+
+        <Grid Grid.Row="3" Visibility="{Binding PersonInfoVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="520"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Имя</Label>
+            <Label Grid.Row="1">Тревожность</Label>
+            <Label Grid.Row="2">Избегание неудач</Label>
+            <Label Grid.Row="3">Мотивация к успеху</Label>
+            <Label Grid.Row="4">Кетелл</Label>
+            <Label Grid.Row="5">Адаптивность</Label>
+            <Label Grid.Row="6">Оценка страха</Label>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedPerson.Name}"></Label>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedPerson.Anxiety.Info}"></Label>
+            <Label Grid.Row="2"  Grid.Column="1" Content="{Binding SelectedPerson.Failrue.Info}"></Label>
+            <Label Grid.Row="3"  Grid.Column="1" Content="{Binding SelectedPerson.Motivation.Info}"></Label>
+            <Label Grid.Row="4"  Grid.Column="1" Content="{Binding SelectedPerson.Kettel.Info}"></Label>
+            <Label Grid.Row="5"  Grid.Column="1" Content="{Binding SelectedPerson.Personal.Info}"></Label>
+            <Label Grid.Row="6"  Grid.Column="1" Content="{Binding SelectedPerson.Self.Info}"></Label>
+
+            <Button Grid.Row="1" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click">Заполнить</Button>
+            <Button Grid.Row="2" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_4">Заполнить</Button>
+            <Button Grid.Row="3" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_6">Заполнить</Button>
+            <Button Grid.Row="4" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_7">Заполнить</Button>
+            <Button Grid.Row="5" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_5">Заполнить</Button>
+            <Button Grid.Row="6" Grid.Column="2" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_8" >Заполнить</Button>
+
+            <Button Grid.Row="1" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_9" >Редактировать</Button>
+            <Button Grid.Row="2" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_10" >Редактировать</Button>
+            <Button Grid.Row="3" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_11" >Редактировать</Button>
+            <Button Grid.Row="4" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_12" >Редактировать</Button>
+            <Button Grid.Row="5" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_13" >Редактировать</Button>
+            <Button Grid.Row="6" Grid.Column="3" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_14" >Редактировать</Button>
+        </Grid>
+    </Grid>
+</Window>
